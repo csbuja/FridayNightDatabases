@@ -1,0 +1,1 @@
+Created a database called friday_night, mimicing the well-documented "friday night" scenario for databases

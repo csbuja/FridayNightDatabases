@@ -1,0 +1,40 @@
+Use AWS CLI to access the dynamo_db database
+
+aws CLI
+aws dynamodb create-table \
+    --table-name MusicCollection \
+    --attribute-definitions AttributeName=Artist,AttributeType=S AttributeName=SongTitle,AttributeType=S \
+    --key-schema AttributeName=Artist,KeyType=HASH AttributeName=SongTitle,KeyType=RANGE \
+    --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1
+
+json notation
+CreateTable
+{
+    TableName : "Music",
+    KeySchema: [
+        {
+            AttributeName: "Artist",
+            KeyType: "HASH", //Partition key
+        },
+        {
+            AttributeName: "SongTitle",
+            KeyType: "RANGE" //Sort key
+        }
+    ],
+    AttributeDefinitions: [
+        {
+            AttributeName: "Artist",
+            AttributeType: "S" // can be S, N, or B
+        },
+        {
+            AttributeName: "SongTitle",
+            AttributeType: "S"
+        }
+    ],
+    ProvisionedThroughput: {       // Only specified if using provisioned mode
+        ReadCapacityUnits: 1,
+        WriteCapacityUnits: 1
+    }
+}
+
+Let's create Bars table
