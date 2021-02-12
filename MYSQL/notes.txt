@@ -1,0 +1,1 @@
+Created a database in mysql called friday_night, mimicing the well-documented "friday night" scenario for databases
